@@ -14,6 +14,8 @@
         <script src="js/factories/ScoreFactory.js"></script>
         <script src="js/filters/cheat-filter.js"></script>
         <script src="js/directives/loader/loader.js"></script>
+        <script src="js/directives/flashcard/flashcard.js"></script>
+        <script src="js/directives/hover/hoverjs"></script>
     </head>
 
     <body ng-app="FlashCards">
@@ -33,31 +35,10 @@
                     {{ category }}
                 </button>
 
-
-
-                <div ng-repeat="flashCard in flashCards | orderBy:'question'"
-                     ng-controller="FlashCardController"
-                     class="flash-card">
-
-                    <h1>{{ flashCard.question | uppercase }}</h1>
-                    <h3>{{ flashCard.category }}</h3>
-
-                    <ul class="flash-card-answers">
-                        <li class="flash-card-answer"
-                            ng-click="answerQuestion(answer)"
-                            ng-repeat="answer in flashCard.answers">
-                            {{ answer.text }}
-                        </li>
-                    </ul>
-
-                    <h2 class="answer-feedback"
-                        ng-show="answered"
-                        ng-class="{ correct: answeredCorrectly, incorrect: !answeredCorrectly }">
-                        <span ng-show="answeredCorrectly">Yeah, you got it right!</span>
-                        <span ng-show="!answeredCorrectly">Nope, you got it wrong.</span>
-                    </h2>
-
-                </div>
+				<div class = "flash-card" ng-repeat="flashCard in flashCards | orderBy:'question'">
+					<flash-card card="flashCard"></flash-card>
+				</div>
+                    
             </div>
 
         </div>

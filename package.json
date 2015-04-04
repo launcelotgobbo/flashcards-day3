@@ -5,13 +5,13 @@
   "main": "angular.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon -e js,html,scss ./start.js"
+    "start": "nodemon -e js,html,scss ./start.js"
   },
   "author": "Joe Alves <databentpx@gmail.com> (http://www.github.com/joedotjs)",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^2.9.7",
     "express": "^4.11.2",
-    "mongoose": "^3.8.23"
+    "mongoose": "^4.0.1"
   }
 }
