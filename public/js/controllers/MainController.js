@@ -13,18 +13,23 @@ app.controller('MainController', function ($scope, FlashCardsFactory) {
 
     $scope.getAllCards = function () {
         $scope.chosenCategory = 'All';
+	   $scope.loading = true;
         FlashCardsFactory.getFlashCards().then(function (cards) {
             $scope.flashCards = cards;
+	        $scope.loading = false;
         });
     };
 
     $scope.getCategoryCards = function (category) {
         $scope.chosenCategory = category;
+        $scope.loading = true;
         FlashCardsFactory.getFlashCards(category).then(function (cards) {
             $scope.flashCards = cards;
+            $scope.loading = false;
         });
     };
 
     $scope.getAllCards();
+    $scope.loading = false;
 
 });
